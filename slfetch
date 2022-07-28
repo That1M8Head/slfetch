@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+uname -o &> /dev/null
+
+if [ "$(uname -s)" == "Darwin" ]; then
+        osname=$(sw_vers | cut -d':' -f2- | head -n 1 | xargs)
+        osversion=$(sw_vers -productVersion | cut -d':' -f2- | head -n 1 | xargs)
+elif [ -f /etc/os-release ]; then
+	osname=$(< /etc/os-release grep -w NAME | head -1 | sed 's/NAME=//g' | sed 's/\"//g' | sed 's/ Linux//g')
+	osversion=$(< /etc/os-release grep -w VERSION | head -1 | sed 's/VERSION=//g' | sed 's/\"//g')
+elif ! uname -s; then
+	osname=$(uname -o)
+	osversion="unknown"
+else
+	osname="unknown"
+fi
+
+jokes="Nice computer you got here. Can I have it?
+There's probably some RAM installed.
+/sbin/init is probably running.
+Go on. Post to r/unixporn. I dare you.
+$SHELL likely exists.
+What? Were you expecting ASCII art?
+You probably have enough free space.
+/ is probably mounted.
+I'd just like to interject for a moment.\nWhat you're referring to as $osname is in fact GNU/$osname.
+Hopefully there's a CPU in here somewhere.
+Imagine using $EDITOR."
+
+if [ "$(uname -s)" == "Darwin" ]; then
+    jokes="${jokes}
+Pfft, Mac users."
+fi
+
+joke=$(echo "$jokes" | shuf -n 1)
+echo -e "\033[1m$joke\033[0m"
+
+if [ $osname != "unknown" ]; then
+    echo -e "> You're running \033[1m$osname\033[0m, version \033[1m$osversion\033[0m."
+else
+    echo -e "> I have... \033[1mno clue\033[0m what OS your system is running."
+fi
+echo -e "> Your kernel is \033[1m$(uname -s)\033[0m, version \033[1m$(uname -r)\033[0m."
+echo -e "> Your architecture is \033[1m$(uname -p)\033[0m."

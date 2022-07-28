@@ -1,0 +1,10 @@
+Take it and Like it Public Licence v3
+
+You're free to copy and distribute verbatim and modified versions of this license document. 
+Please change the license name if distributing modified versions.
+
+- You can use this software for whatever purpose.
+- The developers aren't responsible for anything that misbehaves.
+- Relicensing is permitted.
+
+TL;DR: Do whatever you want with this, but it isn't anyone else's fault if anything goes wrong.
