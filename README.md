@@ -33,3 +33,14 @@ Hopefully there's a CPU in here somewhere.
 + `awk`
 
 and if your system doesn't have these then your system is incorrect.
+
+## Supported Operating Systems
+
+In order of supportedness:
+
++ (GNU/)Linux
++ Windows, through WSL
++ macOS
++ Any other *nix system
++ Windows, through MSYS2 or Git Bash
++ Actually just anything that can run bash
