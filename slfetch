@@ -53,9 +53,9 @@ $EDNAME, man! !man $EDNAME"
 
 if [ "$osname" != "Windows" ]; then
     jokes="${jokes}
-/sbin/init is probably running.
+init is probably running.
 Go on. Post to r/unixporn. I dare you.
-/ is probably mounted."
+rootfs is probably mounted."
 fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
@@ -70,6 +70,7 @@ fi
 
 if [[ "$osname" == "Windows" ]]; then
     jokes="${jokes}
+C: is probably mounted.
 Why the hell are you using bash on Windows?
 Heh. Michaelsoft Binbows.
 Your computer has a virus! It's called Windows.
