@@ -59,12 +59,12 @@ if [ "$(uname -s)" == "Darwin" ]; then
 Pfft. Mac users.
 Think different? No, I don't think I will.
 I Want to Buy a Computer - Now What?
-Just a couple of us Macs having fun!"
+Just a couple of us Macs having fun!"x
 fi
 
 # If you get those last two references you're a legend
 
-if [ "$(uname -s)" == "Windows" ]; then
+if [ "$osname" == "Windows" ]; then
     jokes="${jokes}
 Why the hell are you using bash on Windows?
 Heh. Michaelsoft Binbows.
