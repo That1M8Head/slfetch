@@ -1,31 +1,35 @@
 # slfetch
 
-A [`nofetch`](https://github.com/not-my-segfault/nofetch)-inspired fetch tool.
+It is a story as old as time. Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa--
 
-`slfetch` displays system information in a simple and user-friendly way, written in bash.
+`slfetch` is a fetch tool written in bash inspired by [`nofetch`](https://github.com/not-my-segfault/nofetch) that is intentionally bare-bones - no ASCII art or pretty colo(u)rs.
 
-No ASCII. No slowdowns. No complicated crap. Just fetch.
+```
+$ slfetch
 
-![](screenshot.png)
+Hopefully there's a CPU in here somewhere.
+> You're running Ubuntu, version 22.04.2 LTS (Jammy Jellyfish).
+> Your kernel is Linux, version 5.15.90.1-microsoft-standard-WSL2.
+> Your machine type is x86_64.
 
-## Installing
+```
+
+(Yes, I know, WSL. Laugh at me all you want.)
+
+## Install
 
 1. `git clone https://github.com/that1m8head/slfetch`
 2. `cd slfetch`
 3. `chmod +x slfetch`
-4. `sudo make install`
+4. `sudo make install` or `sudo cp` it manually
 
-## Usage
+### To run, you need:
 
-`slfetch`.
-
-## Dependencies
-
-Basically any *nix system should have these.
-
-+ `sudo` or `doas`, otherwise run `make install` as root
-+ `bash` or compatible shell
++ `bash`
 + `grep`
 + `head`
 + `sed`
 + `cat`
++ `awk`
+
+and if your system doesn't have these then your system is incorrect.
