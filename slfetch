@@ -39,12 +39,9 @@ fi
 
 jokes="Oh! Nice computer you got here! Can I have it?
 There's probably some RAM installed.
-/sbin/init is probably running.
-Go on. Post to r/unixporn. I dare you.
 $SHELL likely exists.
 What? Were you expecting ASCII art?
 You probably have enough free space.
-/ is probably mounted.
 I'd just like to interject for a moment.\nWhat you're referring to as $osname is in fact GNU/$osname.
 Hopefully there's a CPU in here somewhere.
 Imagine using $EDNAME.
@@ -53,6 +50,13 @@ It's probably a computer.
 $osname, $osname never changes.
 It can probably run DOOM.
 $EDNAME, man! !man $EDNAME"
+
+if [ "$osname" != "Windows" ]; then
+    jokes="${jokes}
+/sbin/init is probably running.
+Go on. Post to r/unixporn. I dare you.
+/ is probably mounted."
+fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
     jokes="${jokes}
