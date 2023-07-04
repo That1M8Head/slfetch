@@ -70,7 +70,7 @@ fi
 
 if [[ "$osname" == "Windows" ]]; then
     jokes="${jokes}
-C: is probably mounted.
+C:\ is probably mounted.
 Why the hell are you using bash on Windows?
 Heh. Michaelsoft Binbows.
 Your computer has a virus! It's called Windows.
