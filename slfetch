@@ -64,13 +64,21 @@ fi
 
 # If you get those last two references you're a legend
 
-if [ "$osname" == "Windows" ]; then
+if [[ "$osname" == "Windows" ]]; then
     jokes="${jokes}
 Why the hell are you using bash on Windows?
 Heh. Michaelsoft Binbows.
 Your computer has a virus! It's called Windows.
 How long until your next scheduled update?
 :("
+fi
+
+if [[ "$(uname -r)" == *WSL* ]]; then
+    jokes="${jokes}
+This system is sus...
+There's a Subsystem among us!
+You were nothing but a usurper. A false idol.
+I suppose it's better than cmd.exe..."
 fi
 
 # Randomly choose a joke from the above list
