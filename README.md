@@ -4,7 +4,7 @@ It is a story as old as time. Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa--
 
 `slfetch` is a fetch tool written in bash inspired by [`nofetch`](https://github.com/not-my-segfault/nofetch) that is intentionally bare-bones - no ASCII art or pretty colo(u)rs.
 
-```
+```none
 $ slfetch
 
 Hopefully there's a CPU in here somewhere.
@@ -26,6 +26,7 @@ Hopefully there's a CPU in here somewhere.
 ### To run, you need:
 
 + `bash`
++ `uname`
 + `grep`
 + `head`
 + `sed`
