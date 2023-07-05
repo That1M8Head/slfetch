@@ -3,6 +3,17 @@
 # slfetch - super-simple no-BS fetch tool
 # written by Arsalan Kazmi
 
+# Before everything, parse options
+minimal=false
+
+while getopts "m" opt; do
+    case $opt in
+        m)
+            minimal=true
+            ;;
+    esac
+done
+
 # First, check if the OS is macOS
 if [ "$(uname -s)" == "Darwin" ]; then
     osname=$(sw_vers | cut -d':' -f2- | head -n 1 | xargs)
@@ -41,7 +52,8 @@ else
     EDNAME="no editor at all"
 fi
 
-jokes="Oh! Nice computer you got here! Can I have it?
+if ! $minimal; then
+	jokes="Oh! Nice computer you got here! Can I have it?
 There's probably some RAM installed.
 $SHELL likely exists.
 What? Were you expecting ASCII art?
@@ -56,59 +68,65 @@ It can probably run DOOM.
 $EDNAME, man! !man $EDNAME
 Was that the byte of '87!?"
 
-if [ "$osname" != "Windows" ]; then
-    jokes="${jokes}
+	if [ "$osname" != "Windows" ]; then
+		jokes="${jokes}
 init is probably running.
 Go on. Post to r/unixporn. I dare you.
 rootfs is probably mounted."
-fi
+	fi
 
-if [ "$(uname -s)" == "Darwin" ]; then
-    jokes="${jokes}
+	if [ "$(uname -s)" == "Darwin" ]; then
+		jokes="${jokes}
 Pfft. Mac users.
 Think different? No, I don't think I will.
 I Want to Buy a Computer - Now What?
 Just a couple of us Macs having fun!"
-fi
+	fi
 
-# If you get those last two references you're a legend
+	# If you get those last two references you're a legend
 
-if [[ "$osname" == "Windows" ]]; then
-    jokes="${jokes}
+	if [[ "$osname" == "Windows" ]]; then
+		jokes="${jokes}
 C:\ is probably mounted.
 Why the hell are you using bash on Windows?
 Heh. Michaelsoft Binbows.
 Your computer has a virus! It's called Windows.
 How long until your next scheduled update?
 :("
-fi
+	fi
 
-if [[ "$(uname -r)" == *WSL* ]]; then
-    jokes="${jokes}
+	if [[ "$(uname -r)" == *WSL* ]]; then
+		jokes="${jokes}
 This system is sus...
 There's a Subsystem among us!
 You were nothing but a usurper. A false idol.
 I suppose it's better than cmd.exe..."
-fi
+	fi
 
-if [[ "$osname" == "Android" ]]; then
-    jokes="${jokes}
+	if [[ "$osname" == "Android" ]]; then
+		jokes="${jokes}
 Can't do this on an iPhone!
 This software does not support Material You.
 Remember the Android Market? Yeah...
 I bet your other computer is a Chromebook."
+	fi
+
+	# Randomly choose a joke from the above list
+	joke=$(echo "$jokes" | shuf -n 1)
+	echo -e "\n\033[1m$joke\033[0m"
 fi
 
-# Randomly choose a joke from the above list
-joke=$(echo "$jokes" | shuf -n 1)
-echo -e "\n\033[1m$joke\033[0m"
-
-# The meat of the script
-# We use newlines here to make it a little neater
-if [ $osname != "unknown" ]; then
-    echo -e "> You're running \033[1m$osname\033[0m, version \033[1m$osversion\033[0m."
+if $minimal; then
+	# If in minimal output mode, print minimal output
+	echo -e "$osname $osversion on $(uname -s)"
 else
-    echo -e "> I have \033[1mno clue\033[0m what OS your system is running."
+	# The meat of the script
+	# We use newlines here to make it a little neater
+	if [ $osname != "unknown" ]; then
+		echo -e "> You're running \033[1m$osname\033[0m, version \033[1m$osversion\033[0m."
+	else
+		echo -e "> slfetch \033[1mcould not determine\033[0m your OS."
+	fi
+	echo -e "> Your kernel is \033[1m$(uname -s)\033[0m, version \033[1m$(uname -r)\033[0m."
+	echo -e "> Your machine type is \033[1m$(uname -m)\033[0m.\n"
 fi
-echo -e "> Your kernel is \033[1m$(uname -s)\033[0m, version \033[1m$(uname -r)\033[0m."
-echo -e "> Your machine type is \033[1m$(uname -m)\033[0m.\n"
