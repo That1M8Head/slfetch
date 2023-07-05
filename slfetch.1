@@ -1,0 +1,47 @@
+.TH SLFETCH 1 "July 2023" "slfetch" "User Commands"
+
+.SH NAME
+slfetch \- super\-simple no\-BS fetch tool
+
+.SH SYNOPSIS
+.B slfetch
+[\-m]
+
+.SH DESCRIPTION
+slfetch is a fetch tool written in bash inspired by nofetch that is intentionally bare-bones - no ASCII art or pretty colo(u)rs. It detects the operating system, kernel, and machine type, and displays them on the terminal along with a random joke.
+
+.SH OPTIONS
+.TP
+.B \-m
+Displays minimal output.
+
+.SH USAGE
+To run slfetch and get system information, simply run:
+
+.BR $\ slfetch
+
+To display minimal output (no joke and single-line output), use the \-m option:
+
+.BR $\ slfetch\ \-m
+
+.SH PLATFORM SUPPORT
+slfetch supports various platforms, including the following, in order of supportedness:
+(GNU/)Linux, Windows through WSL, macOS, any other *nix system, Windows through MSYS2 or Git Bash, actually just anything that can run bash.
+
+.SH SEE ALSO
+The slfetch GitHub repository for more information:
+.BR https://github.com/that1m8head/slfetch
+
+slfetch's inspiration, nofetch:
+.BR https://github.com/not-my-segfault/nofetch
+
+.SH AUTHOR
+slfetch was written by Arsalan Kazmi <sonicspeed848@gmail.com>.
+
+.SH LICENSE
+This program is free software, licensed under the Take it and Like it Public License.
+That means you can do whatever you want with the program or its source code, but without any warranty.
+Visit https://that1m8head.github.io/tlpl for more information. 
+
+.SH BUGS
+If you encounter any bugs or issues, please report them on the GitHub repository.
