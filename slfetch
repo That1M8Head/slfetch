@@ -15,6 +15,10 @@ elif [[ "$(uname -s)" == *NT* ]]; then
 elif [ -f /etc/os-release ]; then
     osname=$(< /etc/os-release grep -w NAME | head -1 | sed 's/NAME=//g' | sed 's/\"//g' | sed 's/ Linux//g')
     osversion=$(< /etc/os-release grep -w VERSION | head -1 | sed 's/VERSION=//g' | sed 's/\"//g')
+# Otherwise, check if it's Android
+elif [[ $(uname -o) == "Android" ]]; then
+    osname="Android"
+    osversion="$(getprop ro.build.version.release)"
 # Otherwise, just use uname -o
 elif ! uname -s; then
     osname=$(uname -o)
@@ -85,6 +89,14 @@ This system is sus...
 There's a Subsystem among us!
 You were nothing but a usurper. A false idol.
 I suppose it's better than cmd.exe..."
+fi
+
+if [[ "$osname" == "Android" ]]; then
+    jokes="${jokes}
+Can't do this on an iPhone!
+This software does not support Material You.
+Remember the Android Market? Yeah...
+I bet your other computer is a Chromebook."
 fi
 
 # Randomly choose a joke from the above list
